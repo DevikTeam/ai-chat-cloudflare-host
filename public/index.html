@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,13 +8,14 @@
     :root {
       --primary: #f97316;
       --primary-hover: #ea580c;
-      --bg: linear-gradient(135deg, #fef9f5, #fef3e7);
-      --border: #e5e7eb;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --user-bg: #fff7ed;
-      --assistant-bg: #f1f5f9;
-      --shadow: rgba(0, 0, 0, 0.05);
+      --bg: #121212;
+      --surface: #1e1e1e;
+      --border: #2c2c2c;
+      --text: #e0e0e0;
+      --muted: #9ca3af;
+      --user-bg: #2a2a2a;
+      --assistant-bg: #1f2937;
+      --shadow: rgba(0, 0, 0, 0.6);
     }
 
     * {
@@ -45,8 +46,7 @@
     }
 
     .chat-container {
-      background: #ffffffcc;
-      backdrop-filter: blur(6px);
+      background: var(--surface);
       border-radius: 16px;
       box-shadow: 0 10px 20px var(--shadow);
       overflow: hidden;
@@ -61,7 +61,6 @@
       padding: 1.25rem;
       flex: 1;
       overflow-y: auto;
-      background-color: #fff;
     }
 
     .message {
@@ -69,7 +68,8 @@
       padding: 1rem;
       border-radius: 12px;
       max-width: 75%;
-      box-shadow: 0 2px 4px var(--shadow);
+      animation: fade-in 0.4s ease;
+      box-shadow: 0 2px 6px var(--shadow);
       transition: transform 0.2s;
     }
 
@@ -87,6 +87,17 @@
       align-self: flex-start;
     }
 
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .typing-indicator {
       font-style: italic;
       color: var(--muted);
@@ -102,7 +113,7 @@
       display: flex;
       padding: 1rem;
       border-top: 1px solid var(--border);
-      background: #fefefe;
+      background: #181818;
     }
 
     #user-input {
@@ -110,6 +121,8 @@
       padding: 0.75rem 1rem;
       font-size: 1rem;
       border: 1px solid var(--border);
+      background: #111;
+      color: var(--text);
       border-radius: 8px;
       resize: none;
       font-family: inherit;
